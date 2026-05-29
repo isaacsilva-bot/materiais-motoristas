@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Treinamento de Motoristas</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-100 min-h-screen text-gray-800">
+
+    <header class="bg-orange-600 text-white shadow-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto px-4 py-4 flex flex-col sm:flex-row justify-between items-center gap-4">
+            <h1 class="text-xl font-bold tracking-wide flex items-center gap-2">
+                📦 Central de Treinamento
+            </h1>
+            <input type="text" id="search" onkeyup="filterMaterials()" placeholder="Buscar material..." 
+                   class="w-full sm:w-64 px-3 py-1.5 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-400 text-sm">
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4 py-6">
+        <div id="material-list" class="space-y-4">
+
+            <div class="material-card bg-white p-5 rounded-xl shadow-xs border-l-4 border-orange-500 hover:shadow-md transition">
+                <h2 class="text-lg font-semibold text-gray-950 mb-2">1. Primeiros Passos e Integração</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Guia essencial para o início das atividades. Entenda como funciona o modelo de coletas da Shopee, o uso obrigatório do Driver App, regras de conduta, uso correto de EPIs de segurança, rotinas de carregamento e o fluxo de descarregamento nos HUBs e SOCs.
+                </p>
+                <a href="documentos/Primeiros_Passos_Motoristas_Shopee.pdf" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
+                    📄 Abrir Arquivo PDF
+                </a>
+            </div>
+
+            <div class="material-card bg-white p-5 rounded-xl shadow-xs border-l-4 border-orange-500 hover:shadow-md transition">
+                <h2 class="text-lg font-semibold text-gray-950 mb-2">2. Segurança na Estrada e Sinistros</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Orientações fundamentais para garantir uma rota segura e mitigar riscos. Aprenda a reconhecer sinais de alerta na estrada, comportamentos suspeitos, prevenção de acidentes e roubos, além do protocolo correto de como agir com calma em caso de abordagens e os procedimentos pós-incidente com o analista de rota.
+                </p>
+                <a href="documentos/Seguranca_na_Operacao_e_Sinistro.pdf" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
+                    📄 Abrir Arquivo PDF
+                </a>
+            </div>
+
+            <div class="material-card bg-white p-5 rounded-xl shadow-xs border-l-4 border-orange-500 hover:shadow-md transition">
+                <h2 class="text-lg font-semibold text-gray-950 mb-2">3. Calendário de Pagamentos e Faturamento</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Tudo o que você precisa saber sobre seus ganhos. Entenda os prazos do calendário de pagamentos, como acompanhar os extratos, lançamentos e descontos na aba de faturamento do aplicativo, e o passo a passo para a emissão correta da Nota Fiscal (MEI) para evitar atrasos.
+                </p>
+                <a href="documentos/Pagamento.pdf" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
+                    📄 Abrir Arquivo PDF
+                </a>
+            </div>
+
+            <div class="material-card bg-white p-5 rounded-xl shadow-xs border-l-4 border-orange-500 hover:shadow-md transition">
+                <h2 class="text-lg font-semibold text-gray-950 mb-2">4. Abertura de Tickets e Suporte</h2>
+                <p class="text-gray-600 text-sm leading-relaxed mb-4">
+                    Canal oficial para a resolução de problemas operacionais e financeiros. Instruções detalhadas de como abrir e preencher um ticket de suporte na Central de Ajuda do aplicativo, prazos permitidos para contestação e regras para envio de evidências claras.
+                </p>
+                <a href="documentos/Tickets_e_Solucoes.pdf" target="_blank" 
+                   class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
+                    📄 Abrir Arquivo PDF
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-xs text-gray-500">
+        &copy; 2026 Minha Empresa Transportadora. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function filterMaterials() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const cards = document.getElementsByClassName('material-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                const desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
