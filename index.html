@@ -38,7 +38,7 @@
             <div class="material-card bg-white p-5 rounded-xl shadow-sm border-l-4 border-orange-500 hover:shadow-md transition">
                 <h2 class="text-lg font-semibold text-gray-950 mb-2">2. Segurança na Estrada e Sinistros</h2>
                 <p class="text-gray-600 text-sm leading-relaxed mb-4">
-                    Orientações fundamentais para garantir uma rota segura e mitigar riscos. Aprenda a reconhecer sinais de alerta na estrada, comportamentos suspeitos, prevenção de acidentes e roubos, além do protocolo correto de como agir com calma em caso de abordagens e os procedimentos pós-incidente com o analista de rota.
+                    Orientações fundamentais para garantir uma rota segura e mitigar risks. Aprenda a reconhecer sinais de alerta na estrada, comportamentos suspeitos, prevenção de acidentes e roubos, além do protocolo correto de como agir com calma em caso de abordagens e os procedimentos pós-incidente com o analista de rota.
                 </p>
                 <a href="Seguranca_na_Operacao_e_Sinistro.pdf.pdf" target="_blank" 
                    class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
@@ -63,4 +63,34 @@
                     Canal oficial para a resolução de problemas operacionais e financeiros. Instruções detalhadas de como abrir e preencher um ticket de suporte na Central de Ajuda do aplicativo, prazos permitidos para contestação e regras para envio de evidências claras.
                 </p>
                 <a href="Tickets_e_Solucoes.pdf.pdf" target="_blank" 
-                   class="inline-flex items-center gap-2 bg-
+                   class="inline-flex items-center gap-2 bg-orange-600 text-white px-4 py-2 rounded-lg font-medium text-sm hover:bg-orange-700 transition">
+                    📄 Abrir Arquivo PDF
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="text-center py-6 text-xs text-gray-500">
+        &copy; 2026 Minha Empresa Transportadora. Todos os direitos reservados.
+    </footer>
+
+    <script>
+        function filterMaterials() {
+            const input = document.getElementById('search').value.toLowerCase();
+            const cards = document.getElementsByClassName('material-card');
+
+            for (let i = 0; i < cards.length; i++) {
+                const title = cards[i].getElementsByTagName('h2')[0].innerText.toLowerCase();
+                const desc = cards[i].getElementsByTagName('p')[0].innerText.toLowerCase();
+                
+                if (title.includes(input) || desc.includes(input)) {
+                    cards[i].style.display = "";
+                } else {
+                    cards[i].style.display = "none";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
